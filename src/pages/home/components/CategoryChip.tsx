@@ -6,7 +6,7 @@ interface CategoryChipProps {
 
 export const CategoryChip = ({category}: CategoryChipProps) => {
   return (
-    <div className={styles.categoryChip}>
+    <div className={styles.chipsLabel}>
       {category}
     </div>
   )

@@ -1,0 +1,66 @@
+.filterArea {
+  position: relative;
+  display: flex;
+  width: 314px;
+  gap: 8px;
+  margin: 12px auto;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filterChip {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  border-radius: 42px;
+  height: 32px;
+  padding: 0 12px 0 16px;
+  justify-content: space-between;
+  border: 1px solid var(--secondary-medium);
+  color: var(--secondary-medium);
+  background-color: var(--neutral-lightest);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.filterChip:hover {
+  background-color: var(--secondary-medium)/95;
+}
+
+.orderLabel {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--neutral-dark);
+}
+
+.overlay {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 1000;
+}
+
+.listItemsContainer {
+  color: var(--neutral-darkest);
+  width: 282px;
+  background-color: var(--neutral-extra-light);
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: var(--neutral-dark) 0px 3px 10px 1px;
+}
+
+.itemsList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  gap: 8px;
+}

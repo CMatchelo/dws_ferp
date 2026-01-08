@@ -5,7 +5,7 @@
   height: 64px;
   display: flex;
   align-items: center;
-  color: var(--primary-dark);
+  color: var(--neutral-darkest);
   border-bottom: 1px solid var(--neutral-light);
   margin-bottom: 18px;
 }

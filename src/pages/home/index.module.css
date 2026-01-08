@@ -3,5 +3,5 @@
   grid-template-columns: repeat(auto-fit, 314px);
   gap: 24px;
   justify-content: center;
-  color: var(--primary-dark);
+  color: var(--neutral-darkest);
 }

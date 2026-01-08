@@ -1,7 +1,7 @@
 import type { Post } from "../../../types/post";
 import { formatDate } from "../../../utils/dateFormatter";
 import styles from "./articleCard.module.css";
-import { CategoryChip } from "./categoryChip";
+import { CategoryChip } from "./CategoryChip";
 
 interface ArticleCardProps {
   post: Post;

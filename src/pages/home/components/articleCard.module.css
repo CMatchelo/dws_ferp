@@ -1,0 +1,66 @@
+.postCard {
+  grid-column: span 1;
+  height: 425px;
+  width: 314px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border-radius: 16px;
+  background-color: var(--neutral-lightest);
+}
+
+.postCard img {
+  height: 196px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+}
+
+.postDetails {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+}
+
+.postInfo {
+  display: inline-flex;
+  align-items: center;
+  color: var(--neutral-medium);
+}
+
+.caption {
+  font-size: 12px;
+  line-height: 19px;
+  font-weight: 400;
+  color: var(--neutral-dark);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.bodySmall {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--neutral-extra-dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.postContent {
+  height: 114px;
+}
+
+.categoryChips {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}

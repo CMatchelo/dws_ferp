@@ -1,0 +1,11 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  color: var(--primary-dark);
+  border-bottom: 1px solid var(--neutral-light);
+  margin-bottom: 18px;
+}

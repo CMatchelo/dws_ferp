@@ -1,0 +1,10 @@
+.categoryChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 42px;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--neutral-extra-light);
+}

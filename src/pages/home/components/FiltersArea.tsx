@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { ArrowDownIcon, ArrowsUpDown } from "../../../utils/icons";
-import { FilterChip } from "./FilterChip";
+import { ChipWithIcon } from "../../../components/ChipWithIcon";
 import styles from "./filtersArea.module.css";
 import { useAppData } from "../../../context/AppDataContext";
 import { FilterList } from "./FilterList";
 
 export const FiltesrArea = () => {
-  const [openCategories, setOpenCategories] = useState<boolean>(true);
+  const [openCategories, setOpenCategories] = useState<boolean>(false);
   const [openAuthors, setOpenAuthors] = useState<boolean>(false);
   const { authors, categories } = useAppData();
 
@@ -25,12 +25,12 @@ export const FiltesrArea = () => {
   return (
     <div className={styles.filterArea}>
       <div className={styles.topRow}>
-        <FilterChip onClick={() => openList("categories")}>
+        <ChipWithIcon onClick={() => openList("categories")}>
           Categories <ArrowDownIcon size={24} />
-        </FilterChip>
-        <FilterChip onClick={() => openList("authors")}>
+        </ChipWithIcon>
+        <ChipWithIcon onClick={() => openList("authors")}>
           Author <ArrowDownIcon size={24} />
-        </FilterChip>
+        </ChipWithIcon>
         <div className={styles.orderLabel}>
           Newest First <ArrowsUpDown size={18} />
         </div>

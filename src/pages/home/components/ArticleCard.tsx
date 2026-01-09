@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import type { Post } from "../../../types/post";
 import { formatDate } from "../../../utils/dateFormatter";
 import styles from "./articleCard.module.css";
@@ -8,14 +9,21 @@ interface ArticleCardProps {
 }
 
 export const ArticleCard = ({ post }: ArticleCardProps) => {
+
+  const navigate = useNavigate()
+
+  const goToPost = (id: string) => {
+    navigate(`/${id}`)
+  }
+
   return (
-    <div className={styles.postCard}>
+    <div className={styles.postCard} onClick={() => goToPost(post.id)}>
       <img src={post.thumbnail_url} />
       <div className={styles.postDetails}>
         <div className={styles.postInfo}>
-          <span className={styles.caption}>{formatDate(post.createdAt)}</span>
+          <caption>{formatDate(post.createdAt)}</caption>
           <span className={styles.dot} />
-          <span className={styles.caption}>{post.author.name.trim().split(" ").pop()}</span>
+          <caption>{post.author.name.trim().split(" ").pop()}</caption>
         </div>
         <div className={styles.postContent}>
           <h3 className={styles.postTitle}>{post.title}</h3>

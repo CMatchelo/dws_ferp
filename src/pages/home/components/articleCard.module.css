@@ -29,13 +29,6 @@
   color: var(--neutral-medium);
 }
 
-.caption {
-  font-size: 12px;
-  line-height: 19px;
-  font-weight: 400;
-  color: var(--neutral-dark);
-}
-
 .dot {
   width: 8px;
   height: 8px;

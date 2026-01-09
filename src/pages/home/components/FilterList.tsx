@@ -2,7 +2,7 @@ import { useAppData } from "../../../context/AppDataContext";
 import type { Author } from "../../../types/author";
 import type { Category } from "../../../types/category";
 import { ArrowDownIcon, CloseIcon } from "../../../utils/icons";
-import { FilterChip } from "./FilterChip";
+import { ChipWithIcon } from "../../../components/ChipWIthIcon";
 import styles from "./filtersArea.module.css";
 
 interface FilterListProps {
@@ -55,16 +55,16 @@ export const FilterList = ({ items, isAuthor }: FilterListProps) => {
         ))}
       </ul>
       {selectedAuthorsNames.length > 0 && (
-        <FilterChip onClick={() => cleanList()}>
+        <ChipWithIcon onClick={() => cleanList()}>
           {isAuthor && selectedAuthorsNames.map(author => author?.name.split(" ").pop()).join(", ")}
           <CloseIcon size={24} />
-        </FilterChip>
+        </ChipWithIcon>
       )}
       {selectedCategoryNames.length > 0 && (
-        <FilterChip onClick={() => cleanList()}>
+        <ChipWithIcon onClick={() => cleanList()}>
           {!isAuthor && selectedCategoryNames.map(cat => cat?.name).join(", ")}
           <CloseIcon size={24} />
-        </FilterChip>
+        </ChipWithIcon>
       )}
     </div>
   );

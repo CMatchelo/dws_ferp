@@ -3,5 +3,5 @@ import { http } from "./http";
 
 export const PostsApi = {
   getAll: () => http.get<Post[]>("/posts"),
-  getOne: (id: number) => http.get<Post>(`/posts/${id}`)
+  getOne: (id: string) => http.get<Post>(`/posts/${id}`)
 }

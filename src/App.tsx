@@ -1,7 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/home/index";
+import Home from "./pages/home/Index";
 import Layout from "./components/Layout";
+import PostPage from "./pages/post/[id]";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/:id" element={<PostPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -12,6 +12,7 @@ type AppDataContextType = {
   error: Error | null;
   loading: boolean;
   newestFirst: boolean;
+  termSearched: string;
   setPosts: (posts: Post[]) => void;
   setCategories: (caregories: Category[]) => void;
   setAuthors: (authors: Author[]) => void;
@@ -20,6 +21,7 @@ type AppDataContextType = {
   setSelectedAuthors: React.Dispatch<React.SetStateAction<string[]>>;
   setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
   setNewestFirst: React.Dispatch<React.SetStateAction<boolean>>;
+  setTermSearched: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const AppDataContext = createContext<AppDataContextType | undefined>(undefined);
@@ -33,8 +35,10 @@ export function AppDataProvider({ children }: { children: React.ReactNode }) {
   const [selectedAuthors, setSelectedAuthors] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [newestFirst, setNewestFirst] = useState<boolean>(true);
+  const [termSearched, setTermSearched] = useState<string>("");
 
   const filteredPosts = useMemo(() => {
+    const searchTerm = termSearched.trim().toLocaleLowerCase();
     const result = posts.filter((post) => {
       const filterAuthor =
         selectedAuthors.length === 0 ||
@@ -46,14 +50,17 @@ export function AppDataProvider({ children }: { children: React.ReactNode }) {
           selectedCategories.includes(category.id)
         );
 
-      return filterAuthor && filterCategory;
+      const filterTitle =
+        searchTerm === "" || post.title.toLowerCase().includes(searchTerm);
+
+      return filterAuthor && filterCategory && filterTitle;
     });
     return [...result].sort((a, b) =>
       newestFirst
         ? new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
         : new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
     );
-  }, [posts, selectedAuthors, selectedCategories, newestFirst]);
+  }, [posts, selectedAuthors, selectedCategories, newestFirst, termSearched]);
 
   return (
     <AppDataContext.Provider
@@ -66,6 +73,7 @@ export function AppDataProvider({ children }: { children: React.ReactNode }) {
         error,
         loading,
         newestFirst,
+        termSearched,
         setPosts,
         setAuthors,
         setSelectedAuthors,
@@ -74,6 +82,7 @@ export function AppDataProvider({ children }: { children: React.ReactNode }) {
         setLoading,
         setError,
         setNewestFirst,
+        setTermSearched,
       }}
     >
       {children}

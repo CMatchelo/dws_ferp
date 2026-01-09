@@ -15,11 +15,19 @@
 .orderLabel {
   display: flex;
   flex-direction: row;
-  gap: 4px;
+  gap: 8px;
   align-items: center;
-  font-size: 12px;
+  padding: 2px;
+  font-size: 10px;
   font-weight: bold;
-  color: var(--neutral-dark);
+  color: var(--neutral-extra-dark);
+  border-radius: 48px;
+  cursor: pointer;
+}
+
+.orderLabel:hover {
+  background-color: var(--accent-1-medium);
+  color: var(--neutral-extra-light);
 }
 
 .overlay {

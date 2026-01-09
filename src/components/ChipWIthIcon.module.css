@@ -1,6 +1,6 @@
 .filterChip {
   display: inline-flex;
-  gap: 8px;
+  gap: 4px;
   align-items: center;
   border-radius: 42px;
   height: 32px;
@@ -11,6 +11,7 @@
   background-color: var(--neutral-lightest);
   font-weight: bold;
   font-size: 12px;
+  cursor: pointer;
 }
 
 .filterChip:hover {

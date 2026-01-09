@@ -30,14 +30,14 @@ export const FiltesrContainerMobile = () => {
     <div className={styles.filterArea}>
       <div className={styles.topRow}>
         <ChipWithIcon onClick={() => openList("categories")}>
-          Categories <ArrowDownIcon size={24} />
+          Categories <ArrowDownIcon size={18} />
         </ChipWithIcon>
         <ChipWithIcon onClick={() => openList("authors")}>
-          Author <ArrowDownIcon size={24} />
+          Author <ArrowDownIcon size={18} />
         </ChipWithIcon>
         <div onClick={changeOrder} className={styles.orderLabel}>
           {newestFirst ? <>Newest</> : <>Oldest</>} First{" "}
-          <ArrowsUpDown size={18} />
+          <ArrowsUpDown size={16} />
         </div>
       </div>
 

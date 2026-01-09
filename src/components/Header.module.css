@@ -2,19 +2,37 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 0 24px;
   height: 64px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   color: var(--neutral-darkest);
   border-bottom: 1px solid var(--neutral-light);
   margin-bottom: 18px;
 }
 
+.headerContainer {
+  width: 314px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
 .dentsuLogo {
   width: 100px;
   height: auto;
+}
+
+.logoHiddenMobile {
+  display: none;
 }
 
 .dentsuMotto {
@@ -23,4 +41,67 @@
 
 .searchContainer {
   margin-left: auto;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.searchContainerActive {
+  width: 314px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--neutral-light);
+  padding: 8px;
+  border-radius: 48px;
+  stroke: var(--neutral-extra-light);
+  color: var(--neutral-extra-dark);
+}
+
+.searchContainerActive:hover,
+.searchContainerActive:focus {
+  stroke: var(--accent-1-medium);
+  color: var(--neutral-extra-dark);
+}
+
+.searchContainerActive input {
+  border: none;
+  background-color: transparent;
+  margin-left: 10px;
+  width: 80%;
+  outline: none;
+}
+
+.searchIcon {
+  cursor: pointer;
+  background-color: var(--primary-light);
+  color: var(--neutral-lightest);
+  border-radius: 50%;
+  padding: 3px;
+  height: 21px;
+  width: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholderContainer input {
+  width: 90%;
+  padding: 8px;
+}
+
+@media (min-width: 768px) {
+  .headerContainer {
+    width: 90%;
+  }
+
+  .searchContainerActive {
+    margin-left: auto;
+  }
+
+  .logoHiddenMobile {
+    display: flex;
+  }
+
+  .searchIcon {
+    cursor:default;
+  }
 }

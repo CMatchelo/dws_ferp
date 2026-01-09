@@ -82,6 +82,13 @@ button {
   font-weight: 400;
 }
 
+@media (min-width: 768px) {
+  main {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

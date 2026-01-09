@@ -8,7 +8,7 @@
   color: var(--neutral-darkest)
 }
 
-img {
+.imgCover {
   border-radius: 16px;
 }
 

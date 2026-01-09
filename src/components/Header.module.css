@@ -2,10 +2,25 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  padding: 0 24px;
   height: 64px;
   display: flex;
   align-items: center;
+  gap: 8px;
   color: var(--neutral-darkest);
   border-bottom: 1px solid var(--neutral-light);
   margin-bottom: 18px;
+}
+
+.dentsuLogo {
+  width: 100px;
+  height: auto;
+}
+
+.dentsuMotto {
+  margin-top: 10px;
+}
+
+.searchContainer {
+  margin-left: auto;
 }

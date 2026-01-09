@@ -6,6 +6,7 @@ import styles from "./index.module.css";
 import { formatDate } from "../../utils/dateFormatter";
 import { ChipWithIcon } from "../../components/ChipWIthIcon";
 import { BackArronIcon } from "../../utils/icons";
+import { MostRecent } from "./components/MostRecent";
 
 export default function PostPage() {
   const { id } = useParams<{ id: string }>();
@@ -49,8 +50,9 @@ export default function PostPage() {
           <span className={styles.postDate}>{formatDate(post.createdAt)}</span>
         </div>
       </div>
-      <img src={post.thumbnail_url} alt="Post Cover" />
+      <img className={styles.imgCover} src={post.thumbnail_url} alt="Post Cover" />
       <span className="bodySmall">{post.content}</span>
+      <MostRecent />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import type { Post } from "../../../types/post";
-import { formatDate } from "../../../utils/dateFormatter";
+import type { Post } from "../types/post";
+import { formatDate } from "../utils/dateFormatter";
 import styles from "./articleCard.module.css";
 import { CategoryChip } from "./CategoryChip";
 

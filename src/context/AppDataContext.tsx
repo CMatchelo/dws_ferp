@@ -36,7 +36,7 @@ export function AppDataProvider({ children }: { children: React.ReactNode }) {
       return posts;
     }
 
-    return posts.filter((post) => {
+    const result = posts.filter((post) => {
       const filterAuthor =
         selectedAuthors.length === 0 ||
         selectedAuthors.includes(post.author.id);
@@ -47,6 +47,9 @@ export function AppDataProvider({ children }: { children: React.ReactNode }) {
         );
       return filterAuthor && filterCategory;
     });
+
+    result.sort((a,b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+    return result
   }, [posts, selectedAuthors, selectedCategories]);
 
   return (

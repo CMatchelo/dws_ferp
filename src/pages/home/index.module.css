@@ -2,6 +2,18 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, 314px);
   gap: 24px;
+  flex: 9;
   justify-content: center;
   color: var(--neutral-darkest);
+}
+
+.mainDesktop {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (min-width: 768px) {
+  .postsArea {
+    gap: 24px;
+  }
 }

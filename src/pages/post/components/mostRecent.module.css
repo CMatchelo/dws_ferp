@@ -1,0 +1,8 @@
+.recentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 1px solid var(--neutral-dark);
+  padding: 16px 0;
+  margin: 16px 0;
+}

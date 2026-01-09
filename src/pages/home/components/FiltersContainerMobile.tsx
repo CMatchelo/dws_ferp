@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { ArrowDownIcon, ArrowsUpDown } from "../../../utils/icons";
-import { ChipWithIcon } from "../../../components/ChipWithIcon";
-import styles from "./filtersArea.module.css";
+import styles from "./filtersContainerMobile.module.css";
 import { useAppData } from "../../../context/AppDataContext";
-import { FilterList } from "./FilterList";
+import { FilterListMobile } from "./FilterListMobile";
+import { ChipWithIcon } from "../../../components/ChipWIthIcon";
 
-export const FiltesrArea = () => {
+export const FiltesrContainerMobile = () => {
   const [openCategories, setOpenCategories] = useState<boolean>(false);
   const [openAuthors, setOpenAuthors] = useState<boolean>(false);
   const { authors, categories } = useAppData();
@@ -38,13 +38,13 @@ export const FiltesrArea = () => {
 
       {openCategories && (
         <div className={styles.overlay}>
-          <FilterList items={categories} isAuthor={false} />
+          <FilterListMobile items={categories} isAuthor={false} />
         </div>
       )}
 
       {openAuthors && (
         <div className={styles.overlay}>
-          <FilterList items={authors} isAuthor={true} />
+          <FilterListMobile items={authors} isAuthor={true} />
         </div>
       )}
     </div>

@@ -1,16 +1,16 @@
 import { useAppData } from "../../../context/AppDataContext";
 import type { Author } from "../../../types/author";
 import type { Category } from "../../../types/category";
-import { ArrowDownIcon, CloseIcon } from "../../../utils/icons";
+import { CloseIcon } from "../../../utils/icons";
 import { ChipWithIcon } from "../../../components/ChipWIthIcon";
-import styles from "./filtersArea.module.css";
+import styles from "./filtersContainerMobile.module.css";
 
 interface FilterListProps {
   items: Author[] | Category[];
   isAuthor: boolean;
 }
 
-export const FilterList = ({ items, isAuthor }: FilterListProps) => {
+export const FilterListMobile = ({ items, isAuthor }: FilterListProps) => {
   const {
     setSelectedAuthors,
     setSelectedCategories,

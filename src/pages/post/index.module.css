@@ -1,11 +1,14 @@
-.postContainer {
+.container {
   width: 314px;
   margin: 0 auto;
+}
+
+.postArea {
   display: flex;
   flex-direction: column;
   gap: 12px;
   justify-items: center;
-  color: var(--neutral-darkest)
+  color: var(--neutral-darkest);
 }
 
 .imgCover {
@@ -20,6 +23,7 @@
 
 .writterPic {
   flex: 1;
+  max-width: 40px;
 }
 
 .writterPic img {
@@ -38,4 +42,15 @@
 
 .chipBack {
   align-self: flex-start;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 90%;
+  }
+  .postArea {
+    width: 70%;
+    margin: 0 auto;
+  }
 }

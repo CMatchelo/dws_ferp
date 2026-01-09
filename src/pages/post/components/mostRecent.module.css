@@ -1,8 +1,18 @@
 .recentContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
   border-top: 1px solid var(--neutral-dark);
   padding: 16px 0;
   margin: 16px 0;
+}
+
+.recentArea {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .recentArea {
+    flex-direction: row;
+  }
 }

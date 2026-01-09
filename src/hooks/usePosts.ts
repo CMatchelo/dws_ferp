@@ -7,7 +7,10 @@ export function usePosts() {
 
   useEffect(() => {
     PostsApi.getAll()
-      .then((res) => setPosts(res.data))
+      .then((res) => {
+        console.log("API posts:", res.data.map(p => p.createdAt));
+        setPosts(res.data)
+      })
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, [setPosts, setError, setLoading]);

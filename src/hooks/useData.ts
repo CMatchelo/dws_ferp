@@ -15,6 +15,7 @@ export function useData() {
       AuthorsApi.getAll(),
     ])
       .then(([posts, categories, authors]) => {
+        console.log("API posts:", posts.data.map(p => p.createdAt));
         setPosts(posts.data);
         setCategories(categories.data);
         setAuthors(authors.data);

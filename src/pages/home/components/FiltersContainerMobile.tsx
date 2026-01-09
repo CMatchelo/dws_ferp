@@ -8,7 +8,7 @@ import { ChipWithIcon } from "../../../components/ChipWIthIcon";
 export const FiltesrContainerMobile = () => {
   const [openCategories, setOpenCategories] = useState<boolean>(false);
   const [openAuthors, setOpenAuthors] = useState<boolean>(false);
-  const { authors, categories } = useAppData();
+  const { authors, categories, newestFirst, setNewestFirst } = useAppData();
 
   const openList = (type: "authors" | "categories") => {
     if (type === "authors") {
@@ -22,6 +22,10 @@ export const FiltesrContainerMobile = () => {
     }
   };
 
+  const changeOrder = () => {
+    setNewestFirst((prev) => !prev);
+  };
+
   return (
     <div className={styles.filterArea}>
       <div className={styles.topRow}>
@@ -31,8 +35,9 @@ export const FiltesrContainerMobile = () => {
         <ChipWithIcon onClick={() => openList("authors")}>
           Author <ArrowDownIcon size={24} />
         </ChipWithIcon>
-        <div className={styles.orderLabel}>
-          Newest First <ArrowsUpDown size={18} />
+        <div onClick={changeOrder} className={styles.orderLabel}>
+          {newestFirst ? <>Newest</> : <>Oldest</>} First{" "}
+          <ArrowsUpDown size={18} />
         </div>
       </div>
 

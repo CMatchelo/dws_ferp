@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import type { Post } from "../types/post";
 import type { Category } from "../types/category";
 import type { Author } from "../types/author";
@@ -11,6 +11,7 @@ type AppDataContextType = {
   selectedAuthors: string[];
   error: Error | null;
   loading: boolean;
+  newestFirst: boolean;
   setPosts: (posts: Post[]) => void;
   setCategories: (caregories: Category[]) => void;
   setAuthors: (authors: Author[]) => void;
@@ -18,6 +19,7 @@ type AppDataContextType = {
   setError: (err: Error | null) => void;
   setSelectedAuthors: React.Dispatch<React.SetStateAction<string[]>>;
   setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
+  setNewestFirst: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const AppDataContext = createContext<AppDataContextType | undefined>(undefined);
@@ -30,27 +32,28 @@ export function AppDataProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedAuthors, setSelectedAuthors] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [newestFirst, setNewestFirst] = useState<boolean>(true);
 
   const filteredPosts = useMemo(() => {
-    if (selectedAuthors.length === 0 && selectedCategories.length === 0) {
-      return posts;
-    }
-
     const result = posts.filter((post) => {
       const filterAuthor =
         selectedAuthors.length === 0 ||
         selectedAuthors.includes(post.author.id);
+
       const filterCategory =
         selectedCategories.length === 0 ||
         post.categories.some((category) =>
           selectedCategories.includes(category.id)
         );
+
       return filterAuthor && filterCategory;
     });
-
-    result.sort((a,b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
-    return result
-  }, [posts, selectedAuthors, selectedCategories]);
+    return [...result].sort((a, b) =>
+      newestFirst
+        ? new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        : new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+    );
+  }, [posts, selectedAuthors, selectedCategories, newestFirst]);
 
   return (
     <AppDataContext.Provider
@@ -62,6 +65,7 @@ export function AppDataProvider({ children }: { children: React.ReactNode }) {
         selectedCategories,
         error,
         loading,
+        newestFirst,
         setPosts,
         setAuthors,
         setSelectedAuthors,
@@ -69,6 +73,7 @@ export function AppDataProvider({ children }: { children: React.ReactNode }) {
         setSelectedCategories,
         setLoading,
         setError,
+        setNewestFirst,
       }}
     >
       {children}

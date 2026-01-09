@@ -20,10 +20,12 @@
 .categoriesArea {
   display: flex;
   flex-direction: column;
+  gap: 4px;
 }
 
 .categoriesArea h3 {
   margin-top: 12px;
+  font-size: 1.05rem;
 }
 
 .filtersTitle {
@@ -36,14 +38,41 @@
 
 .itemLine {
   border-bottom: 1px solid var(--neutral-medium);
-  padding: 12px 0;
-  margin-left: 4px;
-  font-weight: bold;
+  padding: 4px 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--neutral-darkest);
+  stroke-width: 1px;
+  stroke: var(--neutral-extra-light);
 }
 
 .itemLine:hover {
-  color: var(--neutral-medium);
+  color: var(--accent-1-dark);
   cursor: pointer;
+}
+
+.itemLineSelected {
+  stroke: var(--accent-1-dark);
+  color: var(--accent-1-dark);
+  background-color: color-mix(in srgb, var(--accent-1-light) 5%, transparent);
+  border: 1px solid var(--neutral-medium);
+  border-radius: 8px;
+}
+
+.applyFilterBtn {
+  background-color: var(--secondary-medium);
+  color: var(--neutral-lightest);
+  padding: 12px;
+  width: 100%;
+  border-radius: 46px;
+  margin-top: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.applyFilterBtn:hover {
+  background-color: var(--secondary-dark);
 }
 
 @media (max-width: 768px) {

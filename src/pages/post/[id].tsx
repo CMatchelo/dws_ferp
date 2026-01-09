@@ -29,30 +29,38 @@ export default function PostPage() {
   if (!post) return <div>Post not found</div>;
 
   const backToMenu = () => {
-    navigate("/")
+    navigate("/");
   };
 
   return (
-    <div className={styles.postContainer}>
+    <div className={styles.container}>
       <ChipWithIcon className={styles.chipBack} onClick={backToMenu}>
-        <BackArronIcon size={16} />
-        Back
-      </ChipWithIcon>
-      <h2>{post.title}</h2>
-      <div className={styles.postInfosContainer}>
-        <div className={styles.writterPic}>
-          <img src={post.author.profilePicture} alt="Author Photo" />
+          <BackArronIcon size={16} />
+          Back
+        </ChipWithIcon>
+      <div className={styles.postArea}>
+        <h2>{post.title}</h2>
+        <div className={styles.postInfosContainer}>
+          <div className={styles.writterPic}>
+            <img src={post.author.profilePicture} alt="Author Photo" />
+          </div>
+          <div className={styles.postInfos}>
+            <span>
+              Written by: <strong>{post.author.name}</strong>
+            </span>
+            <span className={styles.postDate}>
+              {formatDate(post.createdAt)}
+            </span>
+          </div>
         </div>
-        <div className={styles.postInfos}>
-          <span>
-            Written by: <strong>{post.author.name}</strong>
-          </span>
-          <span className={styles.postDate}>{formatDate(post.createdAt)}</span>
-        </div>
+        <img
+          className={styles.imgCover}
+          src={post.thumbnail_url}
+          alt="Post Cover"
+        />
+        <span className="bodySmall">{post.content}</span>
+        <MostRecent />
       </div>
-      <img className={styles.imgCover} src={post.thumbnail_url} alt="Post Cover" />
-      <span className="bodySmall">{post.content}</span>
-      <MostRecent />
     </div>
   );
 }

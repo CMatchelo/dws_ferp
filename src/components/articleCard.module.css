@@ -7,6 +7,7 @@
   align-items: start;
   border-radius: 16px;
   background-color: var(--neutral-lightest);
+  cursor: pointer;
 }
 
 .postCard img {

@@ -44,6 +44,9 @@ export default function Header() {
             ></input>
           )}
           <div
+            role="button"
+            aria-label="Search"
+            id="searchIcon"
             aria-expanded={openSearch}
             aria-controls="search-panel"
             className={styles.searchIcon}

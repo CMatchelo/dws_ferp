@@ -52,6 +52,10 @@ The sorting feature is fully implemented and working as expected.
 
 However, as all posts currently share the **same `createdAt`** value, which means that the sorting logic runs correctly, but no visible difference occurs in the UI
 
+### ENV File
+
+The `.env` file is included here for this test project. In real projects, it should not be committed, but use the deployment environment to set the variables.
+
 ## Possible Improvements
 
 - Add real pagination or infinite scrolling
@@ -64,4 +68,4 @@ npm install
 npm run dev
 
 Then open:
-http://localhost:3000
+http://localhost:5173

@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+# Blog DWS Test
+This project is a responsive blog built with React.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The main goal is to demonstrate **state management**, **component structure**, **responsiveness**, and **best practices in modern React**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive layout
+- Filter posts by:
+  - Author
+  - Category
+- Sort posts by:
+  - Newest first
+  - Oldest first
+- Search posts by 
+    - Title
 
-## React Compiler
+## Stacks
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- TypeScript
+- CSS Modules
+- React Hooks
 
-## Expanding the ESLint configuration
+## Filtering and Sorting
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Filters and sorting are computed using `useMemo` to avoid unnecessary recalculations.
+- Filtering logic supports:
+  - Multiple authors
+  - Multiple categories
+  - Search by post title
+- Sorting supports:
+  - By Newest
+  - By Oldest
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Observations & Design Decisions
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Fixed dimensions (PX)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Some of the fixed pixel dimensions defined in the original layout in the PDF file specification were intentionally adjusted to better support different screen sizes and resolutions.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This decision was made to:
+- Better responsiveness
+- Avoid layout breaking on different screens
+- Enhance usability
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+> In a professional environment, any changes in the original design would be discussed and validated with the designers and stakeholders before implementation.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Sorting by date limitation
+
+The sorting feature is fully implemented and working as expected.
+
+However, as all posts currently share the **same `createdAt`** value, which means that the sorting logic runs correctly, but no visible difference occurs in the UI
+
+## Possible Improvements
+
+- Add real pagination or infinite scrolling
+- Improve accessibility (ARIA attributes, keyboard navigation)
+
+## 📦 Installation & Running Locally
+
+```bash
+npm install
+npm run dev
+
+Then open:
+http://localhost:3000

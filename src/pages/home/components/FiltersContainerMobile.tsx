@@ -28,7 +28,7 @@ export const FiltesrContainerMobile = () => {
 
   return (
     <div className={styles.filterArea}>
-      <div className={styles.topRow}>
+      <section aria-labelledby="filters" className={styles.topRow}>
         <ChipWithIcon onClick={() => openList("categories")}>
           Categories <ArrowDownIcon size={18} />
         </ChipWithIcon>
@@ -39,18 +39,18 @@ export const FiltesrContainerMobile = () => {
           {newestFirst ? <>Newest</> : <>Oldest</>} First{" "}
           <ArrowsUpDown size={16} />
         </div>
-      </div>
+      </section>
 
       {openCategories && (
-        <div className={styles.overlay}>
+        <section aria-labelledby="filters-authors" className={styles.overlay}>
           <FilterListMobile items={categories} isAuthor={false} />
-        </div>
+        </section>
       )}
 
       {openAuthors && (
-        <div className={styles.overlay}>
+        <section aria-labelledby="filters-categories" className={styles.overlay}>
           <FilterListMobile items={authors} isAuthor={true} />
-        </div>
+        </section>
       )}
     </div>
   );

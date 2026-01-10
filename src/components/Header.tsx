@@ -35,12 +35,17 @@ export default function Header() {
         >
           {openSearch && (
             <input
+              id="search-panel"
+              type="search"
+              aria-label="Search posts by title"
               value={termSearched}
               onChange={(e) => setTermSearched(e.target.value)}
               placeholder="Search..."
             ></input>
           )}
           <div
+            aria-expanded={openSearch}
+            aria-controls="search-panel"
             className={styles.searchIcon}
             onClick={
               isMobile ? () => setOpenSearch((prev) => !prev) : undefined

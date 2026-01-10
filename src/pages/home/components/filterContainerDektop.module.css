@@ -36,6 +36,7 @@
 }
 
 .itemLine {
+  list-style-type: none;
   border-bottom: 1px solid var(--neutral-medium);
   padding: 4px 8px;
   font-weight: 500;

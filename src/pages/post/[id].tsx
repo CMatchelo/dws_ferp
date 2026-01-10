@@ -33,7 +33,7 @@ export default function PostPage() {
   };
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <ChipWithIcon className={styles.chipBack} onClick={backToMenu}>
           <BackArronIcon size={16} />
           Back
@@ -61,6 +61,6 @@ export default function PostPage() {
         <span className="bodySmall">{post.content}</span>
         <MostRecent />
       </div>
-    </div>
+    </section>
   );
 }

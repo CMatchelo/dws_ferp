@@ -15,14 +15,15 @@ const ItemList = ({
   isSelected: boolean;
 }) => {
   return (
-    <div
+    <li
+      aria-selected={isSelected}
       onClick={onClick}
       className={`${styles.itemLine} ${
         isSelected ? styles.itemLineSelected : ""
       }`}
     >
       {item.name}
-    </div>
+    </li>
   );
 };
 
@@ -56,7 +57,10 @@ export const FilterContainerDesktop = () => {
         <div className={styles.filtersTitle}>
           <FIlterIcon size={20} /> Filters
         </div>
-        <div className={styles.categoriesArea}>
+        <section
+          aria-labelledby="filter-authors"
+          className={styles.categoriesArea}
+        >
           <h3>Categories</h3>
           {categories.map((cat) => (
             <ItemList
@@ -66,8 +70,11 @@ export const FilterContainerDesktop = () => {
               isSelected={localCategories.includes(cat.id)}
             />
           ))}
-        </div>
-        <div className={styles.categoriesArea}>
+        </section>
+        <section
+          aria-labelledby="filter-categories"
+          className={styles.categoriesArea}
+        >
           <h3>Authors</h3>
           {authors.map((author) => (
             <ItemList
@@ -77,7 +84,7 @@ export const FilterContainerDesktop = () => {
               isSelected={localAuthors.includes(author.id)}
             />
           ))}
-        </div>
+        </section>
         <button className={styles.applyFilterBtn} onClick={applyFilter}>
           Apply filters
         </button>

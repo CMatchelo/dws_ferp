@@ -6,13 +6,13 @@ export const MostRecent = () => {
   const { filteredPosts } = useAppData();
 
   return (
-    <div className={styles.recentContainer}>
+    <section className={styles.recentContainer}>
       <h2>Last articles</h2>
       <div className={styles.recentArea}>
         {filteredPosts.slice(0, 3).map((post) => (
           <ArticleCard key={post.id} post={post} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
